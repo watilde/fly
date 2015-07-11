@@ -166,7 +166,7 @@ export default class Fly extends Emitter {
           return ((file) => {
             if (!this._writers.length) {
               mkdirp.sync(dirname(file))
-              return fs.writeFile(file, data, this.encoding)
+              return fs.writeFileSync(file, data, this.encoding)
             }
             return this._writers.map((write) =>
               write({ dest, base, file, data }))
